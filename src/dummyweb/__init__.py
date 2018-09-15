@@ -1,5 +1,7 @@
 """Dummy Meuporg web frontend"""
 
+from flask import Flask
+
 from .__about__ import (
     __author__,
     __copyright__,
@@ -24,7 +26,9 @@ __all__ = [
     "hello",
 ]
 
+app = Flask(__name__)
 
-def hello():
-    """Return a welcome message."""
-    return "Hello world!"
+
+@app.route('/')
+def index():
+    return 'It works!'
