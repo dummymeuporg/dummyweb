@@ -1,7 +1,10 @@
+import hashlib
 import os
+import random
 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import func
 
 from ._app import app
 app.config['SQLALCHEMY_DATABASE_URI'] = \
@@ -17,3 +20,19 @@ class User(db.Model):
 
     def __repr__(self):
         return f'<User {self.username!r}>'
+
+    def set_password(self, password):
+        hasher = hashlib.sha512()
+        hasher.update(self.username.encode())
+        hasher.update(password.encode())
+        self.password = hasher.hexdigest()
+
+    def generate_tagname(self, username):
+        is_unique = False
+        while not is_unique:
+            number = random.randint(0, 9999)
+            tagname = f"{username}#{number:04d}"
+            user = self.query.filter(func.upper(tagname)).first()
+            if user is None:
+                self.username = tagname
+                is_unique = True
