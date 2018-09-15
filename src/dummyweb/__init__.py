@@ -12,6 +12,8 @@ from .__about__ import (
     __uri__,
     __version__,
 )
+from ._app import app
+from .models import db
 
 
 __all__ = [
@@ -23,11 +25,9 @@ __all__ = [
     "__title__",
     "__uri__",
     "__version__",
-    "hello",
+    "app",
+    "db"
 ]
-
-app = Flask(__name__)
-
 
 @app.route('/')
 def index():

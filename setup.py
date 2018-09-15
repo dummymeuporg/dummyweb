@@ -14,7 +14,8 @@ CLASSIFIERS = [
     "Topic :: Software Development",
 ]
 INSTALL_REQUIRES = [
-    'Flask'
+    'Flask',
+    'Flask-SQLAlchemy'
 ]
 
 
