@@ -1,0 +1,7 @@
+include .flake8 .pydocstyle
+include *.cfg *.in *.ini .*rc *.rst *.txt *.yml
+include docs/conf.py docs/make.bat docs/Makefile
+recursive-include docs *.rst
+graft docs/_static
+prune docs/_build
+recursive-include tests *.py

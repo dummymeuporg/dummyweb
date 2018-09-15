@@ -1,0 +1,14 @@
+[run]
+branch = True
+source = dummyweb
+
+[paths]
+source =
+    src/dummyweb
+    .tox/*/lib/python*/site-packages/dummyweb
+
+[report]
+;fail_under = 100
+show_missing = True
+exclude_lines =
+    if __name__ == .__main__.:
