@@ -1,7 +1,7 @@
 DummyWeb
 ========
 
-Dummy Meuporg web frontend
+Dummy Meuporg web frontend.
 
 Installation
 ------------
@@ -18,10 +18,11 @@ Set environment variables:
 
     FLASK_APP=dummyweb
     SQLALCHEMY_DATABASE_URI=sqlite:////path/to/database.db"
+    DUMMY_ACCOUNT_DIR=/path/to/accounts_directory
 
 
 Run the server with:
 
 .. code-block:: bash
 
-    FLASK_APP=dummyweb python -m flask run
+    python -m flask run

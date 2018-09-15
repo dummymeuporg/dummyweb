@@ -53,6 +53,7 @@ def subscribe():
 
         db.session.add(account)
         db.session.commit()
+        account.create_directory()
         flash(f"Account {account.username} registered!", "info")
         return redirect(url_for("subscribe"))
     else:

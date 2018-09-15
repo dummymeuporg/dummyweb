@@ -1,12 +1,15 @@
 import hashlib
 import os
 import random
+from pathlib import Path
 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import func
 
 from ._app import app
+from .conf import settings
+
 app.config['SQLALCHEMY_DATABASE_URI'] = \
     os.environ["SQLALCHEMY_DATABASE_URI"]
 db = SQLAlchemy(app)
@@ -31,8 +34,14 @@ class User(db.Model):
         is_unique = False
         while not is_unique:
             number = random.randint(0, 9999)
-            tagname = f"{username}#{number:04d}"
+            tagname = f"{username}.{number:04d}"
             user = self.query.filter(func.upper(tagname)).first()
             if user is None:
                 self.username = tagname
                 is_unique = True
+    
+    def create_directory(self):
+        target_path = Path(settings.DUMMY_ACCOUNT_DIR) / self.username.upper()
+        target_path.mkdir(exist_ok=True)
+        with open(str((target_path) / "password"), "wb") as stream:
+            stream.write(bytes.fromhex(self.password))
