@@ -14,6 +14,7 @@ CLASSIFIERS = [
     "Topic :: Software Development",
 ]
 INSTALL_REQUIRES = [
+    'click',
     'Flask',
     'Flask-SQLAlchemy'
 ]
@@ -52,6 +53,11 @@ setup(
     classifiers=CLASSIFIERS,
     package_dir={"": "src"},
     packages=find_packages("src"),
+    entry_points={
+        "console_scripts": [
+            "dummyctl=dummyweb.__main__:main"
+        ]
+    },
     install_requires=INSTALL_REQUIRES,
     python_requires=">=3.6, <4",
     zip_safe=False,
