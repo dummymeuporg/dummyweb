@@ -36,8 +36,8 @@ make a virtual environment from windows cmd :
 
 .. code-block:: bash
 
-	>pip install virtualenvwrapper-win
-	>mkvirtualenv dummyweb
+	pip install virtualenvwrapper-win
+	mkvirtualenv dummyweb
 
 “Envs” folder has been created in your personal user’s folder with your new virtual environment.
 
@@ -45,13 +45,13 @@ For deactivate it:
 
 .. code-block:: bash
 
-	>deactivate
+	deactivate
 
 For activate it:
 	
 .. code-block:: bash
 
-	>workon dummyweb
+	workon dummyweb
 
 Activate the virtual environment
 
@@ -61,18 +61,14 @@ Install the project in editable mode (i.e. setuptools "develop mode")
 
 .. code-block:: bash
 
-	\Git\dummyweb>pip install -e .
+	pip install -e .
 
 
 Make a db with python cmd
 
 .. code-block:: bash
 
-	Git\dummyweb>python
-	>>> from dummyweb import db
-	>>> db.create_all()
-	ctrl + z (for leave python cmd)
-	cmd \Git\dummyweb>dir
+	dummyctl create-bd
 
 you have to see test.db
 
@@ -91,9 +87,9 @@ Run the server with:
 
 .. code-block:: bash
 
-	>python -m flask run
+	python -m flask run
 
 From the browser try to access:
 http://127.0.0.1:5000
 
-If it’s work well played!
+If it works, well played!

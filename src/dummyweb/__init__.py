@@ -58,7 +58,3 @@ def subscribe():
         return redirect(url_for("subscribe"))
     else:
         return render_template("subscribe/template.html")
-		
-@app.route("/toto")
-def toto():
-	return "tata"
