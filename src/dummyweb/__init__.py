@@ -1,6 +1,6 @@
 """Dummy Meuporg web frontend"""
 
-from flask import Flask, flash, redirect, render_template, request, url_for
+from flask import flash, redirect, render_template, request, url_for
 
 from .__about__ import (
     __author__,
@@ -29,9 +29,11 @@ __all__ = [
     "db"
 ]
 
+
 @app.route('/')
 def index():
     return render_template("index/template.html")
+
 
 @app.route('/subscribe', methods=['POST', 'GET'])
 def subscribe():
@@ -40,7 +42,7 @@ def subscribe():
         if request.form["password"] != request.form["password_confirm"]:
             flash("Passwords do not match.", "error")
             return redirect(url_for("subscribe"))
-        
+
         if request.form["email"] != request.form["email_confirm"]:
             flash("Emails do not match", "error")
             return redirect(url_for("subscribe"))

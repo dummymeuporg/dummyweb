@@ -3,7 +3,6 @@ import os
 import random
 from pathlib import Path
 
-from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import func
 
@@ -37,9 +36,9 @@ class User(db.Model):
             tagname = f"{username}.{number:04d}"
             user = self.query.filter(func.upper(tagname)).first()
             if user is None:
-                self.username = tagname
+                self.username = tagname.upper()
                 is_unique = True
-    
+
     def create_directory(self):
         target_path = Path(settings.DUMMY_ACCOUNT_DIR) / self.username.upper()
         target_path.mkdir(exist_ok=True)
