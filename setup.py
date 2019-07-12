@@ -26,7 +26,7 @@ ABOUT_FILE = join(PROJECT_DIR, "src", "dummyweb", "__about__.py")
 
 
 def get_readme():
-    with open(README_FILE) as fileobj:
+    with open(README_FILE, "r") as fileobj:
         return fileobj.read()
 
 
