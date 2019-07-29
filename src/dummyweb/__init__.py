@@ -52,7 +52,7 @@ def subscribe():
         account.generate_tagname(request.form["login"])
         account.set_password(request.form["password"])
         account.email = request.form["email"]
-        if (User.query.filter_by(email=account.email) is None):
+        if User.query.filter_by(email=account.email) is None:
             db.session.add(account)
             db.session.commit()
             account.create_directory()
