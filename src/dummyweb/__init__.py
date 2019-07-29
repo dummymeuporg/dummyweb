@@ -52,11 +52,14 @@ def subscribe():
         account.generate_tagname(request.form["login"])
         account.set_password(request.form["password"])
         account.email = request.form["email"]
-
-        db.session.add(account)
-        db.session.commit()
-        account.create_directory()
-        flash(f"Account {account.username} registered!", "info")
-        return redirect(url_for("subscribe"))
+        if User.query.filter_by(email=account.email) is None:
+            db.session.add(account)
+            db.session.commit()
+            account.create_directory()
+            flash(f"Account {account.username} registered!", "info")
+            return redirect(url_for("subscribe"))
+        else:
+            flash("This email already exists.","error")
+            return redirect(url_for("subscribe"))
     else:
         return render_template("subscribe/template.html")
