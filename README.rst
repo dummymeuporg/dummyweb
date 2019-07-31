@@ -12,6 +12,11 @@ Setup with:
 
     pip install -e .
 
+
+Create a directory which will contain all the accounts' data. Assume this
+directory will be ``/path/to/accounts_directory`` here. This path will be
+the value of the ``DUMMY_ACCOUNT_DIR`` environment variable.
+
 Set environment variables:
 
 .. code-block:: bash
@@ -39,7 +44,8 @@ make a virtual environment from windows cmd :
 	pip install virtualenvwrapper-win
 	mkvirtualenv dummyweb
 
-"Envs" folder has been created in your personal user's folder with your new virtual environment.
+"Envs" folder has been created in your personal user's folder with your new
+virtual environment.
 
 For deactivate it:
 
@@ -62,6 +68,11 @@ Install the project in editable mode (i.e. setuptools "develop mode")
 .. code-block:: bash
 
 	pip install -e .
+    
+Create a directory which will contain all the accounts' data. Assume this
+directory will be ``%USERPROFILE%\\dummyaccounts`` here (where %USERPROFILE%
+refers to your home directory on Windows, e.g. C:\Users\Geoffrey). This path will
+be the value of the ``DUMMY_ACCOUNT_DIR`` environment variable.
     
 Set the following environment variables:
 
