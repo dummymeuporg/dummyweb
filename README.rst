@@ -3,8 +3,8 @@ DummyWeb
 
 Dummy Meuporg web frontend.
 
-Installation
-------------
+Installation for Linux
+----------------------
 
 Setup with:
 
@@ -22,7 +22,7 @@ Set environment variables:
 .. code-block:: bash
 
     FLASK_APP=dummyweb
-    SQLALCHEMY_DATABASE_URI=sqlite:////path/to/database.db"
+    SQLALCHEMY_DATABASE_URI=sqlite:////path/to/database.db
     DUMMY_ACCOUNT_DIR=/path/to/accounts_directory
 
 
@@ -33,7 +33,7 @@ Run the server with:
     python -m flask run
 	
 Installation for Windows
-------------
+------------------------
 
 install Python (python-3.7.0) ;
 
@@ -47,13 +47,13 @@ make a virtual environment from windows cmd :
 "Envs" folder has been created in your personal user's folder with your new
 virtual environment.
 
-For deactivate it:
+In order to deactivate it:
 
 .. code-block:: bash
 
 	deactivate
 
-For activate it:
+In order to activate it:
 	
 .. code-block:: bash
 
